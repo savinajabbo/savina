@@ -7,13 +7,19 @@ const heroClips = [
   { src: "/videos/c.mp4", alt: "Hero clip 1" },
   { src: "/videos/c2.mp4", alt: "Hero clip 2" },
   { src: "/videos/c8.mp4", alt: "Hero clip 3" },
+  { src: "/videos/c11.mp4", alt: "Hero clip 6" },
   { src: "/videos/c3.mp4", alt: "Hero clip 2" },
   { src: "/videos/clip10.mp4", alt: "Hero clip 4" },
   { src: "/videos/c5.mp4", alt: "Hero clip 5" },
+  { src: "/videos/c17.mp4", alt: "Hero clip 5" },
   { src: "/videos/c7.mp4", alt: "Hero clip 6" },
-  // src: "/videos/clip1.mp4", alt: "Hero clip 2" },
+  { src: "/videos/c13.mp4", alt: "Hero clip 5" },
   { src: "/videos/c6.mp4", alt: "Hero clip 6" },
+  { src: "/videos/c16.mp4", alt: "Hero clip 5" },
   { src: "/videos/c9.mp4", alt: "Hero clip 5" },
+  { src: "/videos/c14.mp4", alt: "Hero clip 5" },
+  { src: "/videos/c12.mp4", alt: "Hero clip 5" },
+  { src: "/videos/c15.mp4", alt: "Hero clip 5" },
 ];
 
 export default function Home() {
