@@ -10,7 +10,8 @@ export default function ProjectsPage() {
     <>
       <Nav />
 
-      <main className="mx-auto min-h-screen max-w-2xl px-6 pb-24 pt-32 md:px-12">
+      <main className="min-h-screen px-6 pb-24 pt-32 sm:px-10 md:px-12 lg:px-24">
+        <div className="mx-auto w-full max-w-7xl">
         <div className="animate-fade-in space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground">
             projects
@@ -53,6 +54,7 @@ export default function ProjectsPage() {
             &copy; {new Date().getFullYear()} savina jabbo
           </p>
         </footer>
+        </div>
       </main>
     </>
   );

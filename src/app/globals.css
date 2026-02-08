@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #050505;
-  --foreground: #ededed;
-  --muted: #888888;
-  --accent: #a78bfa;
+  --background: #F7E4D6;
+  --foreground: #34110D;
+  --muted: #60211A;
+  --accent: #6B070F;
   --card: #111111;
   --border: #1a1a1a;
 }
@@ -16,7 +16,7 @@
   --color-accent: var(--accent);
   --color-card: var(--card);
   --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-karla);
   --font-mono: var(--font-geist-mono);
 }
 

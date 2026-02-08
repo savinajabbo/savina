@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 export function Nav() {
   return (
@@ -13,49 +13,34 @@ export function Nav() {
         savina jabbo
       </Link>
 
-      <div className="flex items-center gap-6">
-        <Link
-          href="/projects"
-          className="text-sm text-muted transition-colors hover:text-foreground"
-        >
-          projects
-        </Link>
-        <Link
-          href="/about"
-          className="text-sm text-muted transition-colors hover:text-foreground"
-        >
-          about
-        </Link>
-
-        <div className="ml-2 flex items-center gap-4">
+      <div className="flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/savinajabbo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted transition-colors hover:text-foreground"
+            className="text-foreground transition-colors hover:text-accent"
             aria-label="GitHub"
           >
             <Github size={16} />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/savinajabbo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted transition-colors hover:text-foreground"
+            className="text-foreground transition-colors hover:text-accent"
             aria-label="LinkedIn"
           >
             <Linkedin size={16} />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://instagram.com/savina.xo"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted transition-colors hover:text-foreground"
-            aria-label="Twitter"
+            className="text-foreground transition-colors hover:text-accent"
+            aria-label="Instagram"
           >
-            <Twitter size={16} />
+            <Instagram size={16} />
           </a>
-        </div>
       </div>
     </nav>
   );
