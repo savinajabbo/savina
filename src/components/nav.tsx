@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Linkedin, Instagram } from "lucide-react";
+import { Github, Linkedin, Instagram, Youtube } from "lucide-react";
 
 export function Nav() {
   return (
@@ -10,7 +10,7 @@ export function Nav() {
         href="/"
         className="text-sm font-medium tracking-tight text-foreground transition-opacity hover:opacity-70"
       >
-        savina jabbo
+        
       </Link>
 
       <div className="flex items-center gap-4">
@@ -40,6 +40,15 @@ export function Nav() {
             aria-label="Instagram"
           >
             <Instagram size={16} />
+          </a>
+          <a
+            href="https://youtube.com/@savinacodes"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground transition-colors hover:text-accent"
+            aria-label="YouTube"
+          >
+            <Youtube size={16} />
           </a>
       </div>
     </nav>

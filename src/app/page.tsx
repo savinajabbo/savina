@@ -26,15 +26,13 @@ export default function Home() {
         <div className="relative mx-auto h-[49.5rem] max-h-[75vh] w-full max-w-7xl overflow-hidden rounded-b-4xl">
           <HeroVideoCarousel clips={heroClips} intervalSeconds={6} />
 
-          {/* Name overlay — on top of video */}
+          {/* Name overlay — staggered: SAVINA right-shifted, JABBO left-shifted like nader.coffee */}
           <div className="pointer-events-none absolute inset-0 z-20">
-            <div className="absolute bottom-[25%] right-32 text-right sm:right-40 md:right-56 lg:right-64">
-              <h1 className="text-[18vw] font-bold uppercase leading-[0.85] tracking-tighter text-background sm:text-[15vw] md:text-[12vw] lg:text-[10rem]">
+            <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2">
+              <h1 className="ml-[20%] text-left text-[clamp(2.5rem,12vw,10rem)] font-bold uppercase leading-[0.85] tracking-tighter text-background">
                 SAVINA
               </h1>
-            </div>
-            <div className="absolute bottom-[6%] left-24 sm:left-32 md:left-44">
-              <h2 className="text-[18vw] font-bold uppercase leading-[0.85] tracking-tighter text-background sm:text-[15vw] md:text-[12vw] lg:text-[10rem]">
+              <h2 className="-ml-[30%] text-left text-[clamp(2.5rem,12vw,10rem)] font-bold uppercase leading-[0.85] tracking-tighter text-background">
                 JABBO
               </h2>
             </div>

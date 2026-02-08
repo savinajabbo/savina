@@ -1,5 +1,7 @@
+import Link from "next/link";
 import { Nav } from "@/components/nav";
 import { ProjectCard } from "@/components/project-card";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata = {
   title: "Projects — Savina Jabbo",
@@ -12,6 +14,14 @@ export default function ProjectsPage() {
 
       <main className="min-h-screen px-6 pb-24 pt-32 sm:px-10 md:px-12 lg:px-24">
         <div className="mx-auto w-full max-w-7xl">
+        <Link
+          href="/"
+          className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground"
+        >
+          <ArrowLeft size={14} />
+          back
+        </Link>
+
         <div className="animate-fade-in space-y-4">
           <h1 className="text-3xl font-semibold tracking-tight text-foreground">
             projects
@@ -49,11 +59,6 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        <footer className="mt-24 border-t border-border pt-6">
-          <p className="font-mono text-xs text-muted/60">
-            &copy; {new Date().getFullYear()} savina jabbo
-          </p>
-        </footer>
         </div>
       </main>
     </>

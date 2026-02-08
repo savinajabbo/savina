@@ -20,7 +20,7 @@ export const writings: Writing[] = [
     slug: "take-that-side-quest",
     title: "take that side quest",
     excerpt: "because I almost didn't even go",
-    date: "2025-01-18",
+    date: "2026-01-18",
     image: "/writings/side-quest.jpg", // optional: add image to public/writings/
   },
   // Substack (or any external) post — link opens in new tab
