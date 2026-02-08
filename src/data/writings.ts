@@ -5,19 +5,23 @@ export type Writing = {
   date: string; // YYYY-MM-DD
   /** If set, this post lives on Substack (or another site). Link goes here. */
   externalUrl?: string;
-  /** For on-site posts: body content. Use \n for paragraphs. */
-  content?: string;
+  /** Optional featured image. Path from public folder, e.g. "/writings/my-post.jpg" */
+  image?: string;
 };
+
+/** Path to the .txt file for an on-site post (relative to project root). */
+export function getContentPath(slug: string): string {
+  return `content/writings/${slug}.txt`;
+}
 
 export const writings: Writing[] = [
   // On-site post — lives on your site at /writings/my-first-post
   {
-    slug: "feelings-create-memories",
-    title: "feelings create memories",
-    excerpt: "A short teaser that shows in the list, like Substack.",
-    date: "2025-02-07",
-    content:
-      "First paragraph here. This is an example of a post that lives on your site.\n\nSecond paragraph. You can add as many paragraphs as you want, separated by blank lines.",
+    slug: "take-that-side-quest",
+    title: "take that side quest",
+    excerpt: "because I almost didn't even go",
+    date: "2025-01-18",
+    image: "/writings/side-quest.jpg", // optional: add image to public/writings/
   },
   // Substack (or any external) post — link opens in new tab
   // {

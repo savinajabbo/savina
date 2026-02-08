@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FolderOpen } from "lucide-react";
+import { Folder, FolderOpen } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { HeroVideoCarousel } from "@/components/hero-video-carousel";
 
@@ -45,7 +45,7 @@ export default function Home() {
         <div className="mx-auto mt-6 w-full max-w-7xl space-y-6">
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
           Making the most of my high school senior year. Organized hackathons with SpaceX, Snapchat, and Hack Club.
-          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I like long conversations and ambitious projects.
+          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I like conversations and ambitious projects.
           </p>
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
             Reach me at <a href="mailto:savinaa@stanford.edu" className="text-foreground hover:text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent">savinaa@stanford.edu</a>.
@@ -59,27 +59,36 @@ export default function Home() {
               <li>
                 <Link
                   href="/projects"
-                  className="link-underline inline-flex items-center gap-2 font-semibold hover:text-accent"
+                  className="group inline-flex items-center gap-2 font-semibold hover:text-accent"
                 >
-                  <FolderOpen size={18} className="shrink-0 text-muted" aria-hidden />
+                  <span className="relative inline-flex h-[18px] w-[18px] shrink-0">
+                    <Folder size={18} className="absolute inset-0 text-muted opacity-100 transition-opacity group-hover:opacity-0" aria-hidden />
+                    <FolderOpen size={18} className="absolute inset-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </span>
                   projects
                 </Link>
               </li>
               <li>
                 <Link
                   href="/memories"
-                  className="link-underline inline-flex items-center gap-2 font-semibold hover:text-accent"
+                  className="group inline-flex items-center gap-2 font-semibold hover:text-accent"
                 >
-                  <FolderOpen size={18} className="shrink-0 text-muted" aria-hidden />
+                  <span className="relative inline-flex h-[18px] w-[18px] shrink-0">
+                    <Folder size={18} className="absolute inset-0 text-muted opacity-100 transition-opacity group-hover:opacity-0" aria-hidden />
+                    <FolderOpen size={18} className="absolute inset-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </span>
                   memories
                 </Link>
               </li>
               <li>
                 <Link
                   href="/writings"
-                  className="link-underline inline-flex items-center gap-2 font-semibold hover:text-accent"
+                  className="group inline-flex items-center gap-2 font-semibold hover:text-accent"
                 >
-                  <FolderOpen size={18} className="shrink-0 text-muted" aria-hidden />
+                  <span className="relative inline-flex h-[18px] w-[18px] shrink-0">
+                    <Folder size={18} className="absolute inset-0 text-muted opacity-100 transition-opacity group-hover:opacity-0" aria-hidden />
+                    <FolderOpen size={18} className="absolute inset-0 text-muted opacity-0 transition-opacity group-hover:opacity-100" aria-hidden />
+                  </span>
                   writings
                 </Link>
               </li>

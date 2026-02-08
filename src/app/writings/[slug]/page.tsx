@@ -1,8 +1,11 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
+import { readFile } from "fs/promises";
+import path from "path";
 import { Nav } from "@/components/nav";
 import { ArrowLeft } from "lucide-react";
-import { getWritingBySlug, getWritings } from "@/data/writings";
+import { getContentPath, getWritingBySlug, getWritings } from "@/data/writings";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -33,14 +36,19 @@ export default async function WritingPostPage({ params }: Props) {
   const post = getWritingBySlug(slug);
 
   if (!post) notFound();
-  if (post.externalUrl) {
-    // Shouldn't land here if we only link on-site posts to this route
-    notFound();
-  }
+  if (post.externalUrl) notFound();
 
-  const paragraphs = (post.content ?? "")
+  let rawContent = "";
+  try {
+    const filePath = path.join(process.cwd(), getContentPath(slug));
+    rawContent = await readFile(filePath, "utf-8");
+  } catch {
+    // File missing or unreadable
+  }
+  const paragraphs = rawContent
     .split(/\n\n+/)
-    .filter((p) => p.trim());
+    .map((p) => p.trim())
+    .filter(Boolean);
 
   return (
     <>
@@ -55,6 +63,19 @@ export default async function WritingPostPage({ params }: Props) {
             <ArrowLeft size={14} />
             writings
           </Link>
+
+          {post.image && (
+            <div className="relative mb-8 aspect-[4/3] w-full overflow-hidden rounded-2xl bg-foreground/5">
+              <Image
+                src={post.image}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 672px"
+                priority
+              />
+            </div>
+          )}
 
           <header className="mb-10">
             <h1 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Nav } from "@/components/nav";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getWritings } from "@/data/writings";
@@ -53,8 +54,20 @@ export default function WritingsPage() {
                       href={post.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block rounded-2xl border border-foreground/10 bg-white/40 p-5 shadow-sm transition-all duration-200 hover:border-foreground/20 hover:bg-white/60 hover:shadow-md sm:p-6"
+                      className="block overflow-hidden rounded-2xl border border-foreground/10 bg-white/40 shadow-sm transition-all duration-200 hover:border-foreground/20 hover:bg-white/60 hover:shadow-md"
                     >
+                      {post.image && (
+                        <div className="relative aspect-[2/1] w-full bg-foreground/5 sm:aspect-[3/1]">
+                          <Image
+                            src={post.image}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 100vw, 672px"
+                          />
+                        </div>
+                      )}
+                      <div className="p-5 sm:p-6">
                       <span className="inline-flex items-center gap-1.5 font-bold text-foreground transition-colors duration-200 group-hover:text-accent">
                         {post.title}
                         <ExternalLink size={14} className="shrink-0 opacity-70" />
@@ -68,12 +81,25 @@ export default function WritingsPage() {
                       >
                         {formatDate(post.date)}
                       </time>
+                      </div>
                     </a>
                   ) : (
                     <Link
                       href={`/writings/${post.slug}`}
-                      className="block rounded-2xl border border-foreground/10 bg-white/40 p-5 shadow-sm transition-all duration-200 hover:border-foreground/20 hover:bg-white/60 hover:shadow-md sm:p-6"
+                      className="block overflow-hidden rounded-2xl border border-foreground/10 bg-white/40 shadow-sm transition-all duration-200 hover:border-foreground/20 hover:bg-white/60 hover:shadow-md"
                     >
+                      {post.image && (
+                        <div className="relative aspect-[2/1] w-full bg-foreground/5 sm:aspect-[3/1]">
+                          <Image
+                            src={post.image}
+                            alt=""
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 640px) 100vw, 672px"
+                          />
+                        </div>
+                      )}
+                      <div className="p-5 sm:p-6">
                       <span className="font-bold text-foreground transition-colors duration-200 group-hover:text-accent">
                         {post.title}
                       </span>
@@ -86,6 +112,7 @@ export default function WritingsPage() {
                       >
                         {formatDate(post.date)}
                       </time>
+                      </div>
                     </Link>
                   )}
                 </li>
