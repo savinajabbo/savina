@@ -48,7 +48,7 @@ export default function Home() {
 
         <div className="mx-auto mt-6 w-full max-w-7xl space-y-6">
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
-          Making the most of my high school senior year. Organized hackathons with SpaceX, Snapchat, and Hack Club.
+          Making the most of my high school senior year. Organized hackathons with SpaceX, Snapchat, ClickUp, and Hack Club.
           San Diego is home. Stanford '30. Chaldean. Frequently side questing. I like conversations and ambitious projects.
           </p>
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">

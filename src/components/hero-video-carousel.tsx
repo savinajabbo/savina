@@ -70,6 +70,7 @@ export function HeroVideoCarousel({
             }}
             src={clip.src}
             className="h-full w-full object-cover opacity-80"
+            autoPlay={index === currentIndex}
             muted
             playsInline
             preload="auto"
