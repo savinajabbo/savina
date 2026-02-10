@@ -32,8 +32,11 @@ export default function MemoriesPage() {
         <h1 className="mb-10 text-2xl font-semibold tracking-tight text-foreground">
           memories
         </h1>
+        <p className="text-sm leading-relaxed text-muted">
+          very cute images will be here :D
+        </p>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
+        {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
           {galleryImages.map(({ src, alt, description, date }) => (
             <div
               key={src}
@@ -46,7 +49,6 @@ export default function MemoriesPage() {
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
                 sizes="(max-width: 640px) 100vw, 50vw"
               />
-              {/* Dark overlay + date (top-right) + description (bottom) on hover */}
               <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/40" />
               {date && (
                 <div className="absolute right-0 top-0 p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -62,7 +64,7 @@ export default function MemoriesPage() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
         </div>
       </main>
     </>

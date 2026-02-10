@@ -67,6 +67,10 @@ export function HeroVideoCarousel({
           <video
             ref={(el) => {
               videoRefs.current[index] = el;
+              if (el && index === currentIndex) {
+                el.muted = true;
+                el.play().catch(() => {});
+              }
             }}
             src={clip.src}
             className="h-full w-full object-cover opacity-80"
@@ -76,7 +80,13 @@ export function HeroVideoCarousel({
             preload="auto"
             loop={loopClips}
             aria-label={clip.alt ?? `Hero video ${index + 1}`}
-            onLoadedMetadata={(e) => {
+            onLoadedData={(e) => {
+              if (index === currentIndex) {
+                e.currentTarget.muted = true;
+                e.currentTarget.play().catch(() => {});
+              }
+            }}
+            onCanPlay={(e) => {
               if (index === currentIndex) {
                 e.currentTarget.play().catch(() => {});
               }

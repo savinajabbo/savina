@@ -28,11 +28,9 @@ export default function Home() {
       <Nav />
 
       <main className="px-6 pb-24 sm:px-10 md:px-12 lg:px-24">
-        {/* Hero — video clips, rounded corners on bottom only — fixed height, wider max-width */}
         <div className="relative mx-auto h-[49.5rem] max-h-[75vh] w-full max-w-7xl overflow-hidden rounded-b-4xl">
           <HeroVideoCarousel clips={heroClips} intervalSeconds={6} />
 
-          {/* Name overlay — staggered: SAVINA right-shifted, JABBO left-shifted like nader.coffee */}
           <div className="pointer-events-none absolute inset-0 z-20">
             <div className="absolute bottom-[6%] left-1/2 -translate-x-1/2">
               <h1 className="ml-[20%] text-left text-[clamp(2.5rem,12vw,10rem)] font-bold uppercase leading-[0.85] tracking-tighter text-background">
