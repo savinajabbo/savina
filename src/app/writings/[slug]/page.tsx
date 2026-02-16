@@ -3,6 +3,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { readFile } from "fs/promises";
 import path from "path";
+import ReactMarkdown from "react-markdown";
+import remarkBreaks from "remark-breaks";
 import { Nav } from "@/components/nav";
 import { ArrowLeft } from "lucide-react";
 import { getContentPath, getWritingBySlug, getWritings } from "@/data/writings";
@@ -46,10 +48,7 @@ export default async function WritingPostPage({ params }: Props) {
   } catch {
     // File missing or unreadable
   }
-  const paragraphs = rawContent
-    .split(/\n\n+/)
-    .map((p) => p.trim())
-    .filter(Boolean);
+  const content = rawContent.trim();
 
   return (
     <>
@@ -91,12 +90,17 @@ export default async function WritingPostPage({ params }: Props) {
           </header>
 
           <div className="prose prose-neutral max-w-none text-foreground">
-            {paragraphs.length > 0 ? (
-              paragraphs.map((p, i) => (
-                <p key={i} className="mb-4 leading-relaxed last:mb-0">
-                  {p}
-                </p>
-              ))
+            {content ? (
+              <div className="whitespace-pre-line">
+                <ReactMarkdown
+                  remarkPlugins={[remarkBreaks]}
+                  components={{
+                    em: ({ children }) => <em className="italic">{children}</em>,
+                  }}
+                >
+                  {content}
+                </ReactMarkdown>
+              </div>
             ) : (
               <p className="text-muted">No content yet.</p>
             )}

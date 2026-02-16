@@ -24,7 +24,7 @@ export function Nav() {
             <Github size={16} />
           </a>
           <a
-            href="https://linkedin.com/in/savinajabbo"
+            href="https://www.linkedin.com/in/savina-jabbo-169143259/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-foreground transition-colors hover:text-accent"
