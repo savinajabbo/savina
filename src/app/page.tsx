@@ -12,14 +12,12 @@ const heroClips = [
   { src: "/videos/clip10.mp4", alt: "Hero clip 4" },
   { src: "/videos/c5.mp4", alt: "Hero clip 5" },
   { src: "/videos/c17.mp4", alt: "Hero clip 5" },
-  { src: "/videos/c7.mp4", alt: "Hero clip 6" },
+  { src: "/videos/c15.mp4", alt: "Hero clip 6" },
   { src: "/videos/c13.mp4", alt: "Hero clip 5" },
   { src: "/videos/c6.mp4", alt: "Hero clip 6" },
   { src: "/videos/c16.mp4", alt: "Hero clip 5" },
   { src: "/videos/c9.mp4", alt: "Hero clip 5" },
   { src: "/videos/c14.mp4", alt: "Hero clip 5" },
-  { src: "/videos/c12.mp4", alt: "Hero clip 5" },
-  { src: "/videos/c15.mp4", alt: "Hero clip 5" },
 ];
 
 export default function Home() {
@@ -46,8 +44,8 @@ export default function Home() {
 
         <div className="mx-auto mt-6 w-full max-w-7xl space-y-6">
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
-          Making the most of my high school senior year. Organized hackathons with SpaceX, Snapchat, ClickUp, and Hack Club.
-          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I hate texting please facetime me. I like conversations and ambitious projects.
+          Making the most of my high school senior year. Organized hackathons with teams at SpaceX, Snapchat, ClickUp, and Hack Club.
+          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I'd rather talk for two hours than text for two weeks. If it's ambitious, I'm in.
           </p>
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
             Reach me at <a href="mailto:savinaa@stanford.edu" className="text-foreground hover:text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent">savinaa@stanford.edu</a>.
@@ -96,6 +94,17 @@ export default function Home() {
               </li>
             </ul>
           </section>
+{/* 
+          <p className="pt-4 text-sm text-muted">
+            <a
+              href="https://load-core-66920386.figma.site/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-accent/30 underline-offset-2 hover:text-foreground hover:decoration-accent"
+            >
+              special shout out to ruby for making this 18th birthday card. (and shout out to everyone who wrote in it <3)
+            </a>
+          </p> */}
         </div>
       </main>
     </>

@@ -20,7 +20,7 @@ export const writings: Writing[] = [
     slug: "belief-that-you-can-fear-that-you're-not-enough",
     title: "belief that you can, fear that you're not enough",
     excerpt:
-      "Belief that you can. Fear that you're not enough. A stressful tension.",
+      "a stressful tension",
     date: "2026-02-16",
     image: "/writings/success.PNG",
   },
