@@ -6,6 +6,7 @@ interface ProjectCardProps {
   url?: string;
   tags?: string[];
   index?: number;
+  onClick?: () => void;
 }
 
 export function ProjectCard({
@@ -14,26 +15,15 @@ export function ProjectCard({
   url,
   tags,
   index = 0,
+  onClick,
 }: ProjectCardProps) {
-  const Wrapper = url ? "a" : "div";
-  const wrapperProps = url
-    ? { href: url, target: "_blank", rel: "noopener noreferrer" }
-    : {};
-
   // Create a fan effect with alternating rotations
   const rotation = index % 2 === 0 ? -2 : 2;
   const offsetX = index * 8 - 12;
   const zIndex = 10 - index;
 
-  return (
-    <Wrapper
-      {...wrapperProps}
-      style={{
-        transform: `rotate(${rotation}deg) translateX(${offsetX}px)`,
-        zIndex: zIndex,
-      }}
-      className="group relative block w-full max-w-sm rounded-lg border border-border bg-card p-5 shadow-lg transition-all duration-300 hover:z-50 hover:rotate-0 hover:translate-x-0 hover:-translate-y-2 hover:border-foreground/20 hover:shadow-xl"
-    >
+  const cardContent = (
+    <>
       <div className="flex items-start justify-between">
         <h3 className="text-sm font-medium text-foreground">{title}</h3>
         {url && (
@@ -56,6 +46,47 @@ export function ProjectCard({
           ))}
         </div>
       )}
-    </Wrapper>
+    </>
+  );
+
+  const baseStyle = {
+    transform: `rotate(${rotation}deg) translateX(${offsetX}px)`,
+    zIndex: zIndex,
+  };
+
+  const baseClassName =
+    "group relative block w-full max-w-sm rounded-lg border border-border bg-card p-5 text-left shadow-lg transition-all duration-300 hover:z-50 hover:rotate-0 hover:translate-x-0 hover:-translate-y-2 hover:border-foreground/20 hover:shadow-xl";
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        style={baseStyle}
+        className={`${baseClassName} cursor-pointer`}
+      >
+        {cardContent}
+      </button>
+    );
+  }
+
+  if (url) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={baseStyle}
+        className={baseClassName}
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return (
+    <div style={baseStyle} className={baseClassName}>
+      {cardContent}
+    </div>
   );
 }

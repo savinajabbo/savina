@@ -18,7 +18,6 @@ export default function MemoriesPage() {
   return (
     <>
       <Nav />
-
       <main className="min-h-screen px-6 pb-24 pt-28 sm:px-10 md:px-12 lg:px-24">
         <div className="mx-auto w-full max-w-7xl">
         <Link

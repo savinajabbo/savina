@@ -24,7 +24,6 @@ export default function Home() {
   return (
     <>
       <Nav />
-
       <main className="px-6 pb-24 sm:px-10 md:px-12 lg:px-24">
         <div className="relative mx-auto h-[49.5rem] max-h-[75vh] w-full max-w-7xl overflow-hidden rounded-b-4xl">
           <HeroVideoCarousel clips={heroClips} intervalSeconds={6} />
@@ -45,13 +44,13 @@ export default function Home() {
         <div className="mx-auto mt-6 w-full max-w-7xl space-y-6">
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
           Making the most of my high school senior year. Organized hackathons with teams at SpaceX, Snapchat, ClickUp, and Hack Club.
-          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I'd rather talk for two hours than text for two weeks. If it's ambitious, I'm in.
+          San Diego is home. Stanford '30. Chaldean. Frequently side questing. I'd rather talk for two hours than text for two weeks.
           </p>
           <p className="text-base leading-relaxed text-foreground sm:text-lg md:text-xl">
             Reach me at <a href="mailto:savinaa@stanford.edu" className="text-foreground hover:text-accent underline decoration-accent/30 underline-offset-2 hover:decoration-accent">savinaa@stanford.edu</a>.
           </p>
 
-          <section className="space-y-2">
+          <section className="space-y-2">                                                                                                                                                                                                                                                             
             <p className="text-sm font-medium uppercase tracking-wider text-muted">
               Directory
             </p>
