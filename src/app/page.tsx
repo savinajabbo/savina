@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Folder, FolderOpen } from "lucide-react";
 import { Nav } from "@/components/nav";
 import { HeroVideoCarousel } from "@/components/hero-video-carousel";
+import { ReloadOnOpen } from "@/components/reload-on-open";
 
 const heroClips = [
   { src: "/videos/c.mp4", alt: "Hero clip 1" },
@@ -24,6 +25,7 @@ const heroClips = [
 export default function Home() {
   return (
     <>
+      <ReloadOnOpen storageKey="savina-home-reload-on-open" />
       <Nav />
       <main className="px-6 pb-24 sm:px-10 md:px-12 lg:px-24">
         <div className="relative mx-auto h-[49.5rem] max-h-[75vh] w-full max-w-7xl overflow-hidden rounded-b-4xl">
