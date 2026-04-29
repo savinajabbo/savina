@@ -23,6 +23,32 @@ export function HeroVideoCarousel({
 }: HeroVideoCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const autoplayBlockedLogged = useRef(false);
+
+  const attemptPlay = (video: HTMLVideoElement | null) => {
+    if (!video) return;
+
+    // Keep these set on every attempt so browser policy checks see the right state.
+    video.muted = true;
+    video.defaultMuted = true;
+    video.playsInline = true;
+
+    const playPromise = video.play();
+    if (!playPromise) return;
+
+    playPromise.catch((error: unknown) => {
+      // In dev, expose autoplay policy failures once so they aren't silent.
+      if (
+        process.env.NODE_ENV !== "production" &&
+        !autoplayBlockedLogged.current &&
+        error instanceof DOMException &&
+        error.name === "NotAllowedError"
+      ) {
+        autoplayBlockedLogged.current = true;
+        console.warn("Hero video autoplay was blocked by browser policy.", error);
+      }
+    });
+  };
 
   // When looping, advance on a timer; when not looping, advance only when video ends (onEnded)
   useEffect(() => {
@@ -46,11 +72,22 @@ export function HeroVideoCarousel({
       if (!video) return;
       if (i === currentIndex) {
         video.currentTime = 0;
-        video.play().catch(() => {});
+        attemptPlay(video);
       } else {
         video.pause();
       }
     });
+  }, [currentIndex]);
+
+  // Retry autoplay when tab becomes visible again (common with iOS/Safari).
+  useEffect(() => {
+    const onVisibilityChange = () => {
+      if (document.visibilityState !== "visible") return;
+      attemptPlay(videoRefs.current[currentIndex]);
+    };
+
+    document.addEventListener("visibilitychange", onVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", onVisibilityChange);
   }, [currentIndex]);
 
   if (clips.length === 0) return null;
@@ -68,8 +105,7 @@ export function HeroVideoCarousel({
             ref={(el) => {
               videoRefs.current[index] = el;
               if (el && index === currentIndex) {
-                el.muted = true;
-                el.play().catch(() => {});
+                attemptPlay(el);
               }
             }}
             src={clip.src}
@@ -77,18 +113,19 @@ export function HeroVideoCarousel({
             autoPlay={index === currentIndex}
             muted
             playsInline
+            disablePictureInPicture
+            disableRemotePlayback
             preload="auto"
             loop={loopClips}
             aria-label={clip.alt ?? `Hero video ${index + 1}`}
             onLoadedData={(e) => {
               if (index === currentIndex) {
-                e.currentTarget.muted = true;
-                e.currentTarget.play().catch(() => {});
+                attemptPlay(e.currentTarget);
               }
             }}
             onCanPlay={(e) => {
               if (index === currentIndex) {
-                e.currentTarget.play().catch(() => {});
+                attemptPlay(e.currentTarget);
               }
             }}
             onEnded={!loopClips ? goToNext : undefined}

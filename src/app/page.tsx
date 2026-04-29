@@ -4,9 +4,11 @@ import { Nav } from "@/components/nav";
 import { HeroVideoCarousel } from "@/components/hero-video-carousel";
 
 const heroClips = [
+  { src: "/videos/c22.mov", alt: "Hero clip 2" },
   { src: "/videos/c.mp4", alt: "Hero clip 1" },
   { src: "/videos/c2.mp4", alt: "Hero clip 2" },
   { src: "/videos/c8.mp4", alt: "Hero clip 3" },
+  { src: "/videos/c21.mov", alt: "Hero clip 2"},
   { src: "/videos/c11.mp4", alt: "Hero clip 6" },
   { src: "/videos/c3.mp4", alt: "Hero clip 2" },
   { src: "/videos/c10.mp4", alt: "Hero clip 4" },
@@ -14,7 +16,7 @@ const heroClips = [
   { src: "/videos/c5.mp4", alt: "Hero clip 5" },
   { src: "/videos/c17.mp4", alt: "Hero clip 5" },
   { src: "/videos/c15.mp4", alt: "Hero clip 6" },
-  { src: "/videos/c13.mp4", alt: "Hero clip 5" },
+ // { src: "/videos/c13.mp4", alt: "Hero clip 5" },
   { src: "/videos/c6.mp4", alt: "Hero clip 6" },
   { src: "/videos/c16.mp4", alt: "Hero clip 5" },
   { src: "/videos/c9.mp4", alt: "Hero clip 5" },
