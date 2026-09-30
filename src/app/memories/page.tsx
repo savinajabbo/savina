@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Nav } from "@/components/nav";
 import { ArrowLeft } from "lucide-react";
 import { getMemoriesGallery } from "@/lib/memories/get-gallery";
-import { isBlobConfigured } from "@/lib/memories/blob-manifest";
 import type { MemoryEntry } from "@/lib/memories/types";
 
 export const metadata = {
@@ -44,7 +43,6 @@ function GalleryImage({ src, alt }: { src: string; alt: string }) {
 
 export default async function MemoriesPage() {
   const galleryImages: MemoryEntry[] = await getMemoriesGallery();
-  const blobOn = isBlobConfigured();
 
   return (
     <>
@@ -62,11 +60,6 @@ export default async function MemoriesPage() {
           <h1 className="mb-10 text-2xl font-semibold tracking-tight text-foreground">
             memories
           </h1>
-          <p className="mb-10 max-w-2xl text-sm leading-relaxed text-muted">
-            {blobOn
-              ? "This gallery is backed by Vercel Blob. Add or remove images from the admin console (no code deploy needed for new photos)."
-              : "Local preview uses entries in content/memories.json. In production, set BLOB_READ_WRITE_TOKEN on Vercel to enable the live blob gallery and admin uploads."}
-          </p>
 
           {galleryImages.length > 0 ? (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2">
@@ -92,13 +85,7 @@ export default async function MemoriesPage() {
                 </div>
               ))}
             </div>
-          ) : (
-            <p className="text-sm text-muted">
-              {blobOn
-                ? "No memories uploaded yet. Use the admin console to add images."
-                : "No entries in content/memories.json, or the blob manifest is empty."}
-            </p>
-          )}
+          ) : null}
         </div>
       </main>
     </>
