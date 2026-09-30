@@ -75,6 +75,11 @@ export function HeroVideoCarousel({
         attemptPlay(video);
       } else {
         video.pause();
+        // If React removed this video's src (it left the load window),
+        // call load() so Safari actually releases the decoder.
+        if (!video.getAttribute("src") && video.currentSrc) {
+          video.load();
+        }
       }
     });
   }, [currentIndex]);
@@ -92,6 +97,13 @@ export function HeroVideoCarousel({
 
   if (clips.length === 0) return null;
 
+  // Safari limits how many videos can decode at once, so only give a src to
+  // the clips that are about to be shown; the rest stay unloaded.
+  const nextIndex = (currentIndex + 1) % clips.length;
+  const prevIndex = (currentIndex - 1 + clips.length) % clips.length;
+  const shouldLoad = (index: number) =>
+    index === currentIndex || index === nextIndex || index === prevIndex;
+
   return (
     <div className="relative h-full w-full bg-black">
       {clips.map((clip, index) => (
@@ -108,14 +120,14 @@ export function HeroVideoCarousel({
                 attemptPlay(el);
               }
             }}
-            src={clip.src}
+            src={shouldLoad(index) ? clip.src : undefined}
             className="h-full w-full object-cover opacity-80"
             autoPlay={index === currentIndex}
             muted
             playsInline
             disablePictureInPicture
             disableRemotePlayback
-            preload="auto"
+            preload={index === currentIndex ? "auto" : "metadata"}
             loop={loopClips}
             aria-label={clip.alt ?? `Hero video ${index + 1}`}
             onLoadedData={(e) => {

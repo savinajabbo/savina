@@ -1,0 +1,28 @@
+{
+  "images": [
+    {
+      "src": "/imposter.png",
+      "alt": "Playing imposter in the ASB room",
+      "description": "Playing imposter after school in the ASB room",
+      "date": "January 22, 2026"
+    },
+    {
+      "src": "/img1.jpg",
+      "alt": "Solenn and Savina at Knott's Berry Farm",
+      "description": "Solenn and I at Knott's Berry Farm",
+      "date": "January 18, 2026"
+    },
+    {
+      "src": "/senior.jpg",
+      "alt": "Homecoming assembly",
+      "description": "Homecoming assembly picture",
+      "date": "October 10, 2025"
+    },
+    {
+      "src": "/sunrise1.jpg",
+      "alt": "Senior sunrise",
+      "description": "Senior sunrise!!",
+      "date": "September 17, 2025"
+    }
+  ]
+}

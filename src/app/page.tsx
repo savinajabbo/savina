@@ -4,11 +4,11 @@ import { Nav } from "@/components/nav";
 import { HeroVideoCarousel } from "@/components/hero-video-carousel";
 
 const heroClips = [
-  { src: "/videos/c22.mov", alt: "Hero clip 2" },
+  { src: "/videos/c22.mp4", alt: "Hero clip 2" },
   { src: "/videos/c.mp4", alt: "Hero clip 1" },
   { src: "/videos/c2.mp4", alt: "Hero clip 2" },
   { src: "/videos/c8.mp4", alt: "Hero clip 3" },
-  { src: "/videos/c21.mov", alt: "Hero clip 2"},
+  { src: "/videos/c21.mp4", alt: "Hero clip 2"},
   { src: "/videos/c11.mp4", alt: "Hero clip 6" },
   { src: "/videos/c3.mp4", alt: "Hero clip 2" },
   { src: "/videos/c10.mp4", alt: "Hero clip 4" },
